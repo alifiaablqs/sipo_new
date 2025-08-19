@@ -19,7 +19,7 @@ class ForgotPwController extends Controller
 
     public function showForgotPasswordForm()
     {
-        return view('pages.forgot-pw');
+        return view('auth.forgot-password');
     }
 
     public function sendVerificationCode(Request $request)

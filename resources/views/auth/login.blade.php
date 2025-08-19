@@ -1,52 +1,86 @@
 @extends('layouts.auth')
 
-@section('content')
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@section('title', 'Login')
 
-    <form method="POST" action="{{ route('login') }}">
+@section('content')
+<div class="login-wrap d-flex align-items-center justify-content-center min-vh-100">
+  <div class="login-card shadow-elev">
+    {{-- Header banner --}}
+    <div class="login-header">
+      <div class="login-banner" style="background-image:url('{{ asset('assets/img/backgroundLogin.png') }}')">
+        <div class="banner-overlay">
+          <div class="logo-container">
+            <img class="login-logo" src="{{ asset('assets/img/logo-reka.png') }}" alt="REKA INKA Group">
+             <h1>SISTEM INFORMASI PERSURATAN ONLINE</h1>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+
+    {{-- Body --}}
+    <div class="login-body">
+      <form method="POST" action="{{ route('login') }}" novalidate>
         @csrf
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        @if ($errors->any())
+          <div class="alert alert-danger mb-3">
+            <ul class="mb-0">
+              @foreach ($errors->all() as $error) <li>{{ $error }}</li> @endforeach
+            </ul>
+          </div>
+        @endif
+
+        @if (session('status'))
+          <div class="alert alert-success mb-3">{{ session('status') }}</div>
+        @endif
+
+        {{-- Email --}}
+        <div class="form-group">
+          <div class="input-wrapper">
+            <span class="icon-chip"><i class="fas fa-user"></i></span>
+            <input type="email" class="form-control input-elev ps-5" name="email"
+                   placeholder="Enter email" value="{{ old('email') }}" required autofocus>
+          </div>
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        {{-- Password --}}
+        <div class="form-group mt-3">
+          <div class="input-wrapper">
+            <span class="icon-chip"><i class="fas fa-lock"></i></span>
+            <input type="password" class="form-control input-elev ps-5 pe-5"
+                   name="password" placeholder="Enter password" required>
+            <i class="fas fa-eye password-toggle" onclick="togglePassword(this)"></i>
+          </div>
         </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
+        {{-- Options row --}}
+        <div class="d-flex justify-content-between align-items-center mt-2">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="remember" name="remember">
+            <label class="form-check-label" for="remember">Ingatkan Saya</label>
+          </div>
+
+          @if (Route::has('forgot-password'))
+            <a class="forgot-link" href="{{ route('forgot-password') }}">Lupa Password?</a>
+          @endif
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
-
+        {{-- Submit --}}
+        <button type="submit" class="btn btn-submit mt-3 w-100">MASUK</button>
+      </form>
+    </div>
+  </div>
+</div>
 @endsection
+
+@push('scripts')
+<script>
+function togglePassword(el){
+  const input = el.parentElement.querySelector('input[type="password"], input[type="text"]');
+  if(!input) return;
+  if(input.type === 'password'){ input.type = 'text'; el.classList.replace('fa-eye','fa-eye-slash'); }
+  else { input.type = 'password'; el.classList.replace('fa-eye-slash','fa-eye'); }
+}
+</script>
+@endpush
