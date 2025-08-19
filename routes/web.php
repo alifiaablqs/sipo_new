@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 // GUEST
 Route::get('/', function () {
-    return view('pages.login');
+    return view('auth.login');
 });
 
 Route::middleware('guest')->group(function () {
@@ -44,16 +44,6 @@ Route::get('/info', function () {
 // Forgot PW Controller
 Route::middleware('web')->group(function () {
     Route::get('/forgot-password', [ForgotPwController::class, 'showForgotPasswordForm'])->name('forgot-password');
-    Route::post('/forgot-password', [ForgotPwController::class, 'sendVerificationCode'])->name('forgot-password.send');
-
-    Route::get('/verify-code', [ForgotPwController::class, 'showVerifyCodeForm'])->name('verify-code');
-    Route::post('/verify-code', [ForgotPwController::class, 'verifyCode'])->name('verify-code.check');
-
-    Route::get('/forgot-password/resend-code', [ForgotPwController::class, 'resendCode'])->name('resend-verification-code');
-
-    Route::get('/reset-password', [ForgotPwController::class, 'showResetPasswordForm'])->name('reset-password');
-
-    Route::post('/reset-password', [ForgotPwController::class, 'resetPassword'])->name('reset-password.update');
 });
 
 // SEMUA
