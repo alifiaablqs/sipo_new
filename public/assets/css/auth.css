@@ -1,0 +1,233 @@
+/**  =====================
+    20. Authentication css start
+==========================  **/
+.auth-main {
+  position: relative;
+}
+.auth-main .auth-wrapper {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+}
+.auth-main .auth-wrapper .saprator {
+  position: relative;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.auth-main .auth-wrapper .saprator:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #eeeeee;
+  z-index: 1;
+}
+.auth-main .auth-wrapper .saprator span {
+  font-size: 0.875rem;
+  padding: 20px 70px;
+  background: #fff;
+  z-index: 5;
+  text-transform: uppercase;
+  color: #212529;
+  font-weight: 500;
+  outline: 1px solid #eeeeee;
+  outline-offset: -16px;
+  border-radius: 10px;
+}
+.auth-main .auth-wrapper .auth-sidecontent {
+  overflow: hidden;
+}
+.auth-main .auth-wrapper.v2 {
+  display: flex;
+  align-items: center;
+}
+.auth-main .auth-wrapper.v2 .logo {
+  width: 100%;
+  padding: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.auth-main .auth-wrapper.v2 .logo + .card {
+  margin-top: 80px;
+}
+.auth-main .auth-wrapper.v2 .auth-form {
+  flex-direction: column;
+}
+.auth-main .auth-wrapper.v2 .auth-sidecontent {
+  width: 500px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #d4e7f9;
+}
+@media (max-width: 991.98px) {
+  .auth-main .auth-wrapper.v2 .auth-sidecontent {
+    display: none;
+  }
+}
+.auth-main .auth-wrapper.v2 .auth-sidecontent > * {
+  position: relative;
+  z-index: 5;
+}
+.auth-main .auth-wrapper.v2 .auth-sidecontent::after {
+  content: "";
+  background-image: url("../images/authentication/auth2-login.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  opacity: 0.1;
+}
+.auth-main .auth-wrapper.v2 .auth-sidecontent .carousel {
+  position: relative;
+  top: 25px;
+}
+.auth-main .auth-wrapper.v1 {
+  display: flex;
+  align-items: center;
+}
+.auth-main .auth-wrapper.v1 .auth-form {
+  background: var(--bs-body-bg);
+  min-height: 100vh;
+  padding: 24px;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent {
+  width: 500px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+@media (max-width: 991.98px) {
+  .auth-main .auth-wrapper.v1 .auth-sidecontent {
+    display: none;
+  }
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent > * {
+  position: relative;
+  z-index: 5;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent::after {
+  content: "";
+  background-image: url("../images/authentication/auth2-login.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  opacity: 0.1;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent .animation-content {
+  position: relative;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent .animation-content .blue-card {
+  position: absolute;
+  animation: 15s ease-in-out 1s infinite normal none running wings;
+  left: 10%;
+  width: 330px;
+  height: 270px;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent .animation-content .purple-card {
+  position: relative;
+  animation: 15s ease-in-out 0s infinite normal none running wings;
+  left: 10%;
+  top: 100px;
+  height: 280px;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent .animation-content .signup-blue-card {
+  position: relative;
+  animation: 15s ease-in-out 1s infinite normal none running wings;
+  width: 400px;
+  top: 40px;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent .animation-content .signup-white-card {
+  position: absolute;
+  animation: 15s ease-in-out 0s infinite normal none running wings;
+  left: 25%;
+  top: 50%;
+  max-width: 100%;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent .animation-content .multi-card {
+  position: relative;
+  animation: 15s ease-in-out 1s infinite normal none running wings;
+  top: 100px;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent .animation-content .mail-card {
+  position: relative;
+  animation: 15s ease-in-out 1s infinite normal none running wings;
+  top: 100px;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent .animation-content .reset-error-card {
+  position: absolute;
+  animation: 15s ease-in-out 1s infinite normal none running wings;
+  height: 270px;
+  top: 30px;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent .animation-content .reset-purple-card {
+  position: relative;
+  animation: 15s ease-in-out 0s infinite normal none running wings;
+  width: 360px;
+  height: 400px;
+  top: 140px;
+  left: 15%;
+}
+.auth-main .auth-wrapper.v1 .auth-sidecontent .carousel {
+  position: relative;
+  top: 25px;
+}
+.auth-main .auth-wrapper.v3 {
+  display: flex;
+  align-items: center;
+}
+.auth-main .auth-wrapper.v3 .auth-form {
+  background: #d4e7f9;
+  min-height: 100vh;
+  padding: 24px;
+}
+.auth-main .auth-wrapper .auth-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+.auth-main .auth-wrapper .auth-form .card {
+  width: 100%;
+  max-width: 480px;
+  box-shadow: none;
+}
+.auth-main .auth-wrapper .auth-form img {
+  padding-right: 15px;
+}
+.auth-main .auth-wrapper .auth-form h5 span, .auth-main .auth-wrapper .auth-form .h5 span {
+  text-decoration: underline;
+}
+.auth-main .auth-wrapper .auth-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes wings {
+  50% {
+    transform: translateY(-40px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+/**  =====================
+    20. Authentication css end
+==========================  **/
