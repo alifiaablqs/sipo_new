@@ -37,6 +37,10 @@ Route::get('/logout', function () {
     return redirect()->route('login');
 });
 
+Route::get('/info', function () {
+        return view('info');
+    })->name('info');
+
 // Forgot PW Controller
 Route::middleware('web')->group(function () {
     Route::get('/forgot-password', [ForgotPwController::class, 'showForgotPasswordForm'])->name('forgot-password');
@@ -93,11 +97,6 @@ Route::middleware(['auth', 'role:1,2,3'])->group(function () {
     Route::get('/notifikasi', [NotifController::class, 'index'])->name('notifications.index');
     Route::get('/notifikasi/jumlah', [NotifController::class, 'getUnreadCount'])->name('notifications.count');
     Route::get('/notifications/tanda-dibaca', [NotifController::class, 'markAllAsRead'])->name('notifications.markAsRead');
-
-    //info
-    Route::get('/info', function () {
-        return view('info');
-    })->name('info');
 });
 
 // SUPERADMIN
