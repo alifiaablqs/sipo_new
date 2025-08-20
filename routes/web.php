@@ -47,7 +47,7 @@ Route::middleware(['auth', 'role:1,2,3'])->group(function () {
         return view('superadmin.dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
 
-    Route::get('/edit-profile', [ProfileController::class, 'editProfile'])->name('edit-profile.superadmin');
+    Route::get('/edit-profile', [ProfileController::class, 'editProfile'])->name('edit-profile');
     Route::post('/delete-photo', [ProfileController::class, 'deletePhoto'])->name('superadmin.deletePhoto');
     Route::post('/update-profile', [ProfileController::class, 'updateProfile'])->name('superadmin.updateProfile');
 

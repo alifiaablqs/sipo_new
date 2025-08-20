@@ -47,7 +47,7 @@
           </li>
           <li><hr class="dropdown-divider"></li>
           <li>
-            <a class="dropdown-item" href="{{ route('edit-profile.superadmin') }}">
+            <a class="dropdown-item" href="{{ route('edit-profile') }}">
               <i class="fas fa-user me-2"></i> Profil
             </a>
           </li>

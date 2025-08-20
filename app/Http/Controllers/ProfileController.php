@@ -14,8 +14,8 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $position = Position::where('id_position', $user->position_id_position)->value('nm_position');
-        
-        return view('superadmin.edit-profileSuperadmin', compact('user', 'position'));
+
+        return view('edit-profile', compact('user', 'position'));
     }
 
     // Simpan atau update profil user
@@ -64,7 +64,7 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $user->profile_image = null;
-        $user->save();
+        // $user->save();
 
         return back()->with('success', 'Foto profil berhasil dihapus.');
     }
