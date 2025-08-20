@@ -168,7 +168,7 @@ class RisalahController extends Controller
         $perPage = $request->get('per_page', 10); // Default ke 10 jika tidak ada input
         $risalahs = $query->paginate($perPage);
 
-        return view('superadmin.risalah.risalah-superadmin', compact('risalahs', 'divisi', 'seri', 'sortDirection', 'kode'));
+        return view('superadmin.risalah.index', compact('risalahs', 'divisi', 'seri', 'sortDirection', 'kode'));
     }
 
     public function create()

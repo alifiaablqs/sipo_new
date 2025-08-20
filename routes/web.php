@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 // GUEST
 Route::get('/', function () {
     return view('auth.login');
-});
+})->name('home');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
@@ -41,15 +41,10 @@ Route::get('/info', function () {
         return view('info');
     })->name('info');
 
-// Forgot PW Controller
-Route::middleware('web')->group(function () {
-    Route::get('/forgot-password', [ForgotPwController::class, 'showForgotPasswordForm'])->name('forgot-password');
-});
-
 // SEMUA
 Route::middleware(['auth', 'role:1,2,3'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('layouts.superadmin');
+        return view('superadmin.dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::get('/edit-profile', [ProfileController::class, 'editProfile'])->name('edit-profile.superadmin');
@@ -95,15 +90,15 @@ Route::middleware(['auth', 'role:1'])->group(function () {
     Route::get('/dashboard.superadmin', [DashboardController::class, 'index'])->name('superadmin.dashboard');
 
     // memo
-    Route::get('/superadmin/memo', [MemoController::class, 'superadmin'])->name('memo.superadmin');
+    Route::get('/superadmin/memo', [MemoController::class, 'superadmin'])->name('superadmin.memo.index');
     Route::delete('/memo/delete/{id_memo}', [MemoController::class, 'delete'])->name('memo.delete');
 
     //undangan
-    Route::get('/superadmin/undangan', [UndanganController::class, 'superadmin'])->name('undangan.superadmin');
+    Route::get('/superadmin/undangan', [UndanganController::class, 'superadmin'])->name('superadmin.undangan.index');
     Route::delete('/undangan/delete/{id_undangan}', [UndanganController::class, 'destroy'])->name('undangan.destroy');
 
     // risalah
-    Route::get('/superadmin/risalah', [RisalahController::class, 'superadmin'])->name('risalah.superadmin');
+    Route::get('/superadmin/risalah', [RisalahController::class, 'superadmin'])->name('superadmin.risalah.index');
     Route::post('/risalah/delete/{id_risalah}', [RisalahController::class, 'destroy'])->name('superadmin.risalah.destroy');
     Route::delete('/risalah/delete/{id_risalah}', [RisalahController::class, 'destroy'])->name('risalah.destroy');
 

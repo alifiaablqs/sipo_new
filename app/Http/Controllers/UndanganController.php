@@ -189,7 +189,7 @@ class UndanganController extends Controller
         $undangans = $query->paginate($perPage);
 
 
-        return view('superadmin.undangan.undangan', compact('undangans', 'kode', 'seri', 'sortDirection'));
+        return view('superadmin.undangan.index', compact('undangans', 'kode', 'seri', 'sortDirection'));
     }
 
 

@@ -74,7 +74,6 @@
 </div>
 
 @endsection
-
 @push('scripts')
 <script>
 // Tag body to scope background override for this page only
@@ -100,3 +99,4 @@ function updateStatus(){
 updateStatus(); setInterval(updateStatus,60000);
 </script>
 @endpush
+

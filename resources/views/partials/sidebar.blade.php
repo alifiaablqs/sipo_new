@@ -19,32 +19,33 @@
                 <h4 class="text-section">MENU</h4>
             </li>
 
-            <li class="nav-item {{ request()->is('dashboard') ? 'active' : '' }}">
-                <a href="{{ url('dashboard') }}">
+            <li class="nav-item {{ request()->routeIs('superadmin.dashboard') ? 'active' : '' }}">
+                <a href="{{ route('superadmin.dashboard') }}" class="nav-link">
                     <i class="fas fa-home"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
 
+
             <!-- Memo -->
-            <li class="nav-item {{ request()->is('memo') ? 'active' : '' }}">
-                <a href="{{ url('memo') }}">
+           <li class="nav-item {{ request()->routeIs('superadmin.memo.index') ? 'active' : '' }}">
+                <a href="{{ route('superadmin.memo.index') }}" class="nav-link">
                     <i class="fas fa-file-alt"></i>
                     <p>Memo</p>
                 </a>
             </li>
 
             <!-- Undangan Rapat -->
-            <li class="nav-item {{ request()->is('undangan') ? 'active' : '' }}">
-                <a href="{{ url('undangan') }}">
+            <li class="nav-item {{ request()->routeIs('superadmin.undangan.index') ? 'active' : '' }}">
+                <a href="{{ route('superadmin.undangan.index') }}" class="nav-link">
                     <i class="fas fa-calendar-alt"></i>
                     <p>Undangan Rapat</p>
                 </a>
             </li>
 
             <!-- Risalah Rapat -->
-            <li class="nav-item {{ request()->is('risalah') ? 'active' : '' }}">
-                <a href="{{ url('risalah') }}">
+            <li class="nav-item {{ request()->routeIs('superadmin.risalah.index') ? 'active' : '' }}">
+                <a href="{{ route('superadmin.risalah.index') }}" class="nav-link">
                     <i class="fas fa-clipboard-list"></i>
                     <p>Risalah Rapat</p>
                 </a>

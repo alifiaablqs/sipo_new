@@ -212,7 +212,7 @@ class MemoController extends Controller
         $memos = $query->paginate($perPage);
 
 
-        return view('superadmin.memo.memo-superadmin', compact('memos', 'divisi', 'kode', 'seri', 'sortDirection'));
+        return view('superadmin.memo.index', compact('memos', 'divisi', 'kode', 'seri', 'sortDirection'));
     }
 
     public function show($id)
